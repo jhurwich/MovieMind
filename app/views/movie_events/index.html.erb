@@ -1,0 +1,22 @@
+<h1>Listing movie_events</h1>
+
+<table>
+  <tr>
+    <th>Movie</th>
+    <th>Event</th>
+  </tr>
+
+<% @movie_events.each do |movie_event| %>
+  <tr>
+    <td><%=h movie_event.movie_id %></td>
+    <td><%=h movie_event.event_id %></td>
+    <td><%= link_to 'Show', movie_event %></td>
+    <td><%= link_to 'Edit', edit_movie_event_path(movie_event) %></td>
+    <td><%= link_to 'Destroy', movie_event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New movie_event', new_movie_event_path %>

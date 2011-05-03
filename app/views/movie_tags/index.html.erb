@@ -1,0 +1,22 @@
+<h1>Listing movie_tags</h1>
+
+<table>
+  <tr>
+    <th>Movie</th>
+    <th>Tag</th>
+  </tr>
+
+<% @movie_tags.each do |movie_tag| %>
+  <tr>
+    <td><%=h movie_tag.movie_id %></td>
+    <td><%=h movie_tag.tag_id %></td>
+    <td><%= link_to 'Show', movie_tag %></td>
+    <td><%= link_to 'Edit', edit_movie_tag_path(movie_tag) %></td>
+    <td><%= link_to 'Destroy', movie_tag, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New movie_tag', new_movie_tag_path %>

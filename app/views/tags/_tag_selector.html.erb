@@ -1,0 +1,8 @@
+<%=
+form.collection_select :tag_ids,
+                       Tag.all,
+                       :id,
+                       :name,
+                       { :prompt => 'Please select some tags.'},
+                       { :multiple => true }
+%>

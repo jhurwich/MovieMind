@@ -1,0 +1,20 @@
+<h1>Editing movie_tag</h1>
+
+<% form_for(@movie_tag) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :movie_id %><br />
+    <%= f.text_field :movie_id %>
+  </p>
+  <p>
+    <%= f.label :tag_id %><br />
+    <%= f.text_field :tag_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @movie_tag %> |
+<%= link_to 'Back', movie_tags_path %>

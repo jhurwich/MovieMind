@@ -1,0 +1,7 @@
+<%=
+form.collection_select :genre_id,
+                       Genre.all,
+                       :id,
+                       :name,
+                       :prompt => "Please select a genre."
+%>

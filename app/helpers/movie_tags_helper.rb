@@ -1,0 +1,2 @@
+module MovieTagsHelper
+end

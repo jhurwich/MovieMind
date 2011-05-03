@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  val: 1
+  seen: false
+  user_id: 1
+  movie_id: 1
+
+two:
+  val: 1
+  seen: false
+  user_id: 1
+  movie_id: 1

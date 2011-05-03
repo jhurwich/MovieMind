@@ -1,0 +1,13 @@
+<p>
+  <b>Movie:</b>
+  <%=h @movie_event.movie_id %>
+</p>
+
+<p>
+  <b>Event:</b>
+  <%=h @movie_event.event_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_event_path(@movie_event) %> |
+<%= link_to 'Back', movie_events_path %>
