@@ -1666,3 +1666,183 @@ Processing MoviesController#show (for 127.0.0.1 at 2011-05-02 18:12:05) [GET]
 Rendering template within layouts/movies
 Rendering movies/show
 Completed in 13ms (View: 5, DB: 1) | 200 OK [http://localhost/movies/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2011-05-02 20:38:21) [GET]
+  [4;36;1mMovie Load (5.5ms)[0m   [0;1mSELECT * FROM `movies` [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;35;1mMovie Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `movies`[0m
+Completed in 82ms (View: 48, DB: 7) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2011-05-02 20:38:31) [GET]
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM `movies` [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;35;1mMovie Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `movies`[0m
+Completed in 21ms (View: 10, DB: 1) | 200 OK [http://localhost/movies]
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMovies (20110502013852)
+Migrating to CreateGenres (20110502013921)
+Migrating to CreateTags (20110502013935)
+Migrating to CreateVotes (20110502014051)
+Migrating to CreateEvents (20110502014242)
+Migrating to CreateMovieTags (20110503002908)
+Migrating to CreateMovieEvents (20110503003025)
+Migrating to DeviseCreateUsers (20110503033925)
+  [4;36;1mSQL (51.8ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `confirmation_token` varchar(255), `confirmed_at` datetime, `confirmation_sent_at` datetime, `reset_password_token` varchar(255), `remember_token` varchar(255), `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (87.4ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (93.6ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [4;35;1mSQL (15.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110503033925')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `events`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `events`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `events`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `genres`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `genres`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `genres`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `movie_events`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `movie_events`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `movie_events`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `movie_tags`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `movie_tags`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `movie_tags`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `movies`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `movies`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `movies`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `tags`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `tags`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `votes`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `votes`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `votes`[0m
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RegistrationsController#new (for 127.0.0.1 at 2011-05-02 20:43:08) [GET]
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering registrations/new
+Rendered shared/_devise_links (1.9ms)
+Completed in 20ms (View: 15, DB: 2) | 200 OK [http://localhost/users/sign_up]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RegistrationsController#create (for 127.0.0.1 at 2011-05-02 20:43:19) [POST]
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"lzqwdq+JZT6DFwhb+KSb+29iI0zpG/h4XcATThqpVGc=", "user"=>{"password_confirmation"=>"jordan23", "password"=>"jordan23", "email"=>"jhurwich@hurwichmail.com"}}
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'jhurwich@hurwichmail.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO `users` (`encrypted_password`, `name`, `created_at`, `confirmation_sent_at`, `last_sign_in_ip`, `updated_at`, `last_sign_in_at`, `sign_in_count`, `password_salt`, `reset_password_token`, `remember_token`, `current_sign_in_ip`, `confirmation_token`, `remember_created_at`, `current_sign_in_at`, `email`, `confirmed_at`) VALUES('1c2d9bbf1c407a4c87b7f6a0862de2fec5b6da60', NULL, '2011-05-03 03:43:19', '2011-05-03 03:43:19', NULL, '2011-05-03 03:43:19', NULL, 0, 'YVBevYaCtxG3kfzCRCKV', NULL, NULL, NULL, '7_pjRte2l8krw3R4p4-m', NULL, NULL, 'jhurwich@hurwichmail.com', NULL)[0m
+Sent mail to jhurwich@hurwichmail.com
+
+Date: Mon, 2 May 2011 20:43:19 -0700
+From: please-change-me@config-initializers-devise.com
+To: jhurwich@hurwichmail.com
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+<p>Welcome jhurwich@hurwichmail.com!</p>
+
+<p>You can confirm your account through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=7_pjRte2l8krw3R4p4-m">Confirm my account</a></p>
+  [4;35;1mSQL (20.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-05-02 20:43:19) [GET]
+  Parameters: {"unconfirmed"=>"true"}
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 22ms (View: 10, DB: 1) | 200 OK [http://localhost/users/sign_in?unconfirmed=true]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-05-02 20:43:32) [POST]
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"lzqwdq+JZT6DFwhb+KSb+29iI0zpG/h4XcATThqpVGc=", "user"=>{"remember_me"=>"0", "password"=>"jo", "email"=>"jhurwich@hurwichmail.com"}}
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'jhurwich@hurwichmail.com') LIMIT 1[0m
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: remember_me
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 19ms (View: 5, DB: 2) | 200 OK [http://localhost/users/sign_in]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-05-02 20:43:36) [POST]
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"lzqwdq+JZT6DFwhb+KSb+29iI0zpG/h4XcATThqpVGc=", "user"=>{"remember_me"=>"0", "password"=>"aaa", "email"=>"jhurwich@hurwichmail.com"}}
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'jhurwich@hurwichmail.com') LIMIT 1[0m
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: remember_me
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 27ms (View: 6, DB: 1) | 200 OK [http://localhost/users/sign_in]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-05-02 20:43:41) [POST]
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"lzqwdq+JZT6DFwhb+KSb+29iI0zpG/h4XcATThqpVGc=", "user"=>{"remember_me"=>"0", "password"=>"jordan23", "email"=>"jhurwich@hurwichmail.com"}}
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'jhurwich@hurwichmail.com') LIMIT 1[0m
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+WARNING: Can't mass-assign these protected attributes: remember_me
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 27ms (View: 4, DB: 1) | 200 OK [http://localhost/users/sign_in]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-05-02 20:43:44) [GET]
+
+ActionController::MethodNotAllowed (Only post, put, and delete requests are allowed.):
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (24.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (method_not_allowed)
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)

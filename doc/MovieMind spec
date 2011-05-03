@@ -1,0 +1,42 @@
+Movie
+	Title
+	has_many tags
+	has_many votes 
+	belongs_to genre
+	has_many events
+
+Genre
+	Name
+	has_many movies
+
+Tag
+	Name
+	has_many movies
+	Commonly used tags and seeded w/ input
+
+User (Devise)
+	name
+	email
+	password
+	has_many votes
+
+Vote
+	val
+	seen	
+	belongs_to user
+	belongs_to movie
+	
+Event
+	name
+	date
+	locations
+	has_many movies
+
+---
+1) Users prepopulate site with suggestions
+2) Users can vote on movies + - or seen, and tag
+3) An event is created with prepopulated suggestions and users are emailed
+4) Users have part of time period to enter more suggestions
+5) Users are emailed final list of possibilities
+6) Users have part of time period to vote on possibilities (Users' votes are saved)
+7) Report

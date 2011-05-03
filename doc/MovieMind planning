@@ -1,0 +1,55 @@
+1) Users
+	A) Use Devise to make authenticable users
+	B) Associate Users and Votes
+	
+2) Movie Browsing
+	A) Filter movies by Genre
+	B) Filter movies by Tag
+	C) Search for specific movie
+		Use Cases:
+			i) User wants to browse and vote on random movies
+			ii) User wants to select movies for an event
+		Qs:
+			i) Can I view other people's votes?
+
+3) Voting
+	A) Accept 1 vote per user
+	B) + or -
+	C) Seen Y or N
+		Qs: 
+			i) Suggestion == Voting (?Genre and Tags) <prob bad>
+
+4) Nav Bar
+	A) Search
+	B) Link to browse
+	C) Link to create event
+	D) Link to submit suggestion
+
+5) Verification of Movies
+	A) Align to IMDB 
+	B) Ensure no duplicate
+
+6) Events
+	A) Event has name, date, loc
+	B) Event can be seeded with movies (manual for now)
+	C) Event has 2 emails (times can be specified?)
+		1) Email 1 announces the event and starts suggestion
+		2) Email 2 closes suggestion and encourages voting
+		Qs:
+			i) should this be knowledgable of who's coming?
+
+7) Emails
+	A) 
+
+8) Homepage
+	?
+
+N+1) Ideas
+	A) Control tags (and genres)
+		 or Get a list of Tags/Genres (Movie ontology?)
+	B) Bulk movie suggestion (Good in event creation too)
+	C) Beautify w/ poster from imdb
+	D) User nicks / epithets
+	E) Comment with votes (char limit?)
+	F) Filter by votes and seen
+	G) Prepopulate events with movie suggestions
