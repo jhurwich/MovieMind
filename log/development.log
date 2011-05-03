@@ -1846,3 +1846,14 @@ Rendered rescues/_trace (24.7ms)
 Rendered rescues/_request_and_response (1.2ms)
 Rendering rescues/layout (method_not_allowed)
 DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+DEPRECATION WARNING: :authenticatable as module is deprecated. Please give :database_authenticatable instead. (called from /home/jhurwich/Documents/Projects/moviemind/app/models/user.rb:6)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2011-05-02 20:49:41) [GET]
+  [4;36;1mMovie Load (3.0ms)[0m   [0;1mSELECT * FROM `movies` [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;35;1mMovie Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `movies`[0m
+Completed in 125ms (View: 40, DB: 4) | 200 OK [http://localhost/]
