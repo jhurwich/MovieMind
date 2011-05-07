@@ -1,8 +1,11 @@
 <%=
-form.collection_select :tag_ids,
-                       Tag.all,
-                       :id,
-                       :name,
-                       { :prompt => 'Please select some tags.'},
-                       { :multiple => true }
+onchange = "" unless defined?(onchange) and onchange
+collection_select object,
+                  :tag_ids,
+                  Tag.all,
+                  :id,
+                  :name,
+                  { :prompt => 'Please select some tags.' },
+                  { :multiple => true,
+                    :onchange => onchange }
 %>

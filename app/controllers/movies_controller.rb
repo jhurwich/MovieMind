@@ -80,4 +80,11 @@ class MoviesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def filter_movies
+    movies = Movie.by_genres(params[:genres]).by_tags(params[:tags], params[:matchAllTags])
+
+    render :partial => "movies/movie_viewer",
+           :locals => { :movies => movies }
+  end
 end

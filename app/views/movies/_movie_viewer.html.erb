@@ -1,0 +1,17 @@
+<div id="movieViewer">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+    </tr>
+    <% movies.each do |movie| %>
+    <tr>
+      <td><%=h movie.title %></td>
+      <td><%=h movie.genre_id %></td>
+      <td><%= link_to 'Show', movie %></td>
+      <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+      <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

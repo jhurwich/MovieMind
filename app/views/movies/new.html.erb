@@ -10,16 +10,16 @@
 
   <!-- Genre -->
   <p>
-    <%= f.label :genre %><br />
+    <br />
     <%= render :partial => "genres/genre_selector",
-               :locals => {:form => f}%>
+               :locals => {:object => "movie"}%>
   </p>
 
   <!-- Tags -->
   <p>
-    <%= f.label :tags %><br />
+    <br />
     <%= render :partial => "tags/tag_selector",
-               :locals => {:form => f} %>
+               :locals => {:object => "movie"} %>
   </p>
 
   <p>

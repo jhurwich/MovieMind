@@ -1,7 +1,22 @@
 <%=
-form.collection_select :genre_id,
-                       Genre.all,
-                       :id,
-                       :name,
-                       :prompt => "Please select a genre."
+onchange = "" unless defined?(onchange) and onchange
+
+if (defined?(multiple) and multiple)
+  collection_select object,
+                    :genre_ids,
+                    Genre.all,
+                    :id,
+                    :name,
+                    { :prompt => "Please select genres." },
+                    { :multiple => true,
+                      :onchange => onchange }
+else
+  collection_select object,
+                    :genre_id,
+                    Genre.all,
+                    :id,
+                    :name,
+                    { :prompt => "Please select a genre." },
+                    { :onchange => onchange }
+end
 %>

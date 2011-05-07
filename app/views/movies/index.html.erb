@@ -1,22 +1,63 @@
+
+
+<script type="text/javascript">
+  MovieSelect = {
+    filterMovies: function() {
+      var genreSelector = document.getElementById("_genre_ids");
+      var selectedGenreIDs = [];
+      for (var i = 0; i < genreSelector.options.length; i++) {
+        var option = genreSelector.options[i];
+        if (option.selected && option.value) {
+          selectedGenreIDs.push(option.value);
+        }
+      }
+
+      var tagSelector = document.getElementById("_tag_ids");
+      var selectedTagIDs = [];
+      for (var i = 0; i < tagSelector.options.length; i++) {
+        var option = tagSelector.options[i];
+        if (option.selected && option.value) {
+          selectedTagIDs.push(option.value);
+        }
+      }
+
+      var allTags = document.getElementById("result_allTags").checked;
+
+      $.ajax({
+        type: "POST",
+        url: "/movies/filter_movies",
+        data: {
+          genres: selectedGenreIDs,
+          matchAllTags: allTags,
+          tags: selectedTagIDs,
+        },
+        success: function(returnedHTML) {
+          $("#movieViewer").html(returnedHTML);
+        }
+      });
+    },
+
+  }
+</script>
 <h1>Listing movies</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Genre</th>
-  </tr>
+<div id="selectors">
+  <%= result = {}
+      render :partial => "/genres/genre_selector",
+             :locals => { :object => result,
+                          :multiple => true,
+                          :onchange => "MovieSelect.filterMovies();" } %>
 
-<% @movies.each do |movie| %>
-  <tr>
-    <td><%=h movie.title %></td>
-    <td><%=h movie.genre_id %></td>
-    <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+  <%= render :partial => "/tags/tag_selector",
+             :locals => { :object => result,
+                          :onchange => "MovieSelect.filterMovies();" } %>
+</div>
+<div id="checkboxes">
+  <%= label("result", "Match all tags") %>
+  <%= check_box("result", "allTags") %>
+</div>
+<%= render :partial => "/movies/movie_viewer",
+           :locals => { :movies => @movies } %>
 <br />
 
 <%= link_to 'New movie', new_movie_path %>
