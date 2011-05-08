@@ -11,6 +11,7 @@ class Movie < ActiveRecord::Base
   has_many :events, :through => :movie_events
 
   has_many :votes
+  has_many :voters, :foreign_key => 'user_id', :through => :votes, :source => :user
 
 
   named_scope :by_genres, lambda { |genres|

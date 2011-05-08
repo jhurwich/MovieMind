@@ -12,7 +12,7 @@
 if user_signed_in?
   render :partial => "movies/vote_viewer",
            :locals => {:movie => @movie,
-                       :user => current_user}
+                       :current_user => current_user}
 else
   "You must be signed in to view other users' votes."
 end

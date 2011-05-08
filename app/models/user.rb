@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :votes
+  validates_presence_of :name
 
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :lockable, :timeoutable and :activatable
