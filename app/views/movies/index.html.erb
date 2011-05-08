@@ -54,7 +54,7 @@
 </div>
 <div id="checkboxes">
   <%= label("result", "Match all tags") %>
-  <%= check_box("result", "allTags") %>
+  <%= check_box("result", "allTags", { :onchange => "MovieSelect.filterMovies();" }) %>
 </div>
 <%= render :partial => "/movies/movie_viewer",
            :locals => { :movies => @movies } %>

@@ -82,7 +82,8 @@ class MoviesController < ApplicationController
   end
 
   def filter_movies
-    movies = Movie.by_genres(params[:genres]).by_tags(params[:tags], params[:matchAllTags])
+    allTags = (params[:matchAllTags] == "true")
+    movies = Movie.by_genres(params[:genres]).by_tags(params[:tags], allTags)
 
     render :partial => "movies/movie_viewer",
            :locals => { :movies => movies }

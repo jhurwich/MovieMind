@@ -1,0 +1,20 @@
+<div id="voteViewer">
+  <% if movie.votes.length == 0 %>
+    There are no votes for this movie yet, you should fix that!
+  <% else %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Vote</th>
+        <th>Seen it?</th>
+      </tr>
+      <% movie.votes.each do |vote| %>
+        <tr>
+          <td><%=h vote.user.email %></td>
+          <td><%=h vote.val %></td>
+          <td><%=h vote.seen %></td>
+        </tr>
+      <% end %>
+  <% end %>
+</div>
+

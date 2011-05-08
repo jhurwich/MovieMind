@@ -5,8 +5,18 @@
 
 <p>
   <b>Genre:</b>
-  <%=h @movie.genre_id %>
+  <%=h @movie.genre.name %>
 </p>
+
+<%=
+if user_signed_in?
+  render :partial => "movies/vote_viewer",
+           :locals => {:movie => @movie,
+                       :user => current_user}
+else
+  "You must be signed in to view other users' votes."
+end
+%>
 
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |

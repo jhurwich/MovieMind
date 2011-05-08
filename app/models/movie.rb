@@ -38,6 +38,8 @@ class Movie < ActiveRecord::Base
     join_base = lambda { |number| "INNER JOIN movie_tags mt" + number.to_s +
                                   " ON movies.id = mt" + number.to_s + ".movie_id" }
     join_str = join_base.call(0)
+
+    # defaults to match any tag
     conditions = ["mt0.tag_id in (" + tags.join(", ") + ")"]
     if matchAll
       conditions = [""]
@@ -47,20 +49,20 @@ class Movie < ActiveRecord::Base
         prev_movie_tags_alias = "mt" + (index-1).to_s
         unless index == 0
           join_str = join_str + " " + join_base.call(index) +
-                     " ON " + movie_tags_alias + ".tag_id > " + prev_movie_tags_alias + ".tag_id "
+                     " AND " + movie_tags_alias + ".tag_id > " + prev_movie_tags_alias + ".tag_id "
         end
         conditions[0] = conditions[0] + " AND" if conditions[0].length > 0
         conditions[0] = conditions[0] + " " + movie_tags_alias + ".tag_id = ?"
         conditions.push(tags[index])
       end
-
-
     end
 
     {
       :select => "movies.*",
       :joins => join_str,
-      :conditions => conditions
+      :conditions => conditions,
+      :group => "movies.id",
+      :order => "movies.title"
     }
   }
 
