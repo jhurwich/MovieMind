@@ -10,7 +10,7 @@
 
 <%=
 if user_signed_in?
-  render :partial => "movies/vote_viewer",
+  render :partial => "votes/vote_viewer",
            :locals => {:movie => @movie,
                        :current_user => current_user}
 else

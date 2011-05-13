@@ -1,20 +1,19 @@
 <h1>Editing movie</h1>
 
+<%= @movie.title %>
+
 <% form_for(@movie) do |f| %>
   <%= f.error_messages %>
 
+  <!-- Genre -->
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= render :partial => "genres/genre_selector",
+               :locals => {:object => "movie"}%>
   </p>
-  <p>
-    <%= f.label :genre_id %><br />
-    <%= f.text_field :genre_id %>
-  </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @movie %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Back', @movie %>

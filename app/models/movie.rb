@@ -13,6 +13,29 @@ class Movie < ActiveRecord::Base
   has_many :votes
   has_many :voters, :foreign_key => 'user_id', :through => :votes, :source => :user
 
+  def vote_ratio
+    sum = 0.0
+    count = 0
+    votes.each do |vote|
+      if vote.val
+        sum = sum + vote.val.to_f
+        count = count + 1
+      end
+    end
+    (count > 0) ? (sum / count) : "-"
+  end
+
+  def num_seen
+    sum = 0
+    votes.collect {|vote| sum = sum + 1 if vote.seen}
+    sum
+  end
+
+  def num_want_to_see
+    sum = 0
+    votes.collect {|vote| sum = sum + 1 if vote.want_to_see}
+    sum
+  end
 
   named_scope :by_genres, lambda { |genres|
     if genres === Integer # we were just given a genre

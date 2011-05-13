@@ -1,13 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.devise_for :users
 
-  map.resources :movie_events
-
-  map.resources :movie_tags
-
   map.resources :events
-
-  map.resources :votes
 
   map.resources :tags
 

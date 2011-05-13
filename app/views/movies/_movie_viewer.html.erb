@@ -4,14 +4,19 @@
       <tr>
         <th>Title</th>
         <th>Genre</th>
+        <th>Vote Ratio</th>
+        <th>Seen it</th>
+        <th>Want to see it</th>
+        <th>Num Votes</th>
       </tr>
       <% movies.each do |movie| %>
         <tr>
-          <td><%=h movie.title %></td>
+          <td><%= link_to movie.title, movie %></td>
           <td><%=h movie.genre.name %></td>
-          <td><%= link_to 'Show', movie %></td>
-          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-          <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%=h movie.vote_ratio %></td>
+          <td><%=h movie.num_seen %></td>
+          <td><%=h movie.num_want_to_see %></td>
+          <td><%=h movie.votes.length %></td>
         </tr>
       <% end %>
     </table>

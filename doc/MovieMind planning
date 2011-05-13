@@ -1,10 +1,6 @@
 1) Users
-	A) Use Devise to make authenticable users
-	B) Associate Users and Votes
-	
+
 2) Movie Browsing
-	A) Filter movies by Genre
-	B) Filter movies by Tag
 	C) Search for specific movie
 		Use Cases:
 			i) User wants to browse and vote on random movies
@@ -13,20 +9,12 @@
 			i) Can I view other people's votes?
 
 3) Voting
-	A) Accept 1 vote per user
-	B) + or -
-	C) Seen Y or N
-		Qs: 
-			i) Suggestion == Voting (?Genre and Tags) <prob bad>
 
 4) Nav Bar
 	A) Search
-	B) Link to browse
-	C) Link to create event
-	D) Link to submit suggestion
 
 5) Verification of Movies
-	A) Align to IMDB 
+	A) Align to IMDB
 	B) Ensure no duplicate
 
 6) Events
@@ -39,7 +27,7 @@
 			i) should this be knowledgable of who's coming?
 
 7) Emails
-	A) 
+	A)
 
 8) Homepage
 	?
