@@ -1,0 +1,27 @@
+<div id="voteViewer">
+  <% unless movie.voters.include? current_user %>
+    You haven't voted on this movie and you really should.
+  <% end %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th colspan="2">Vote</th>
+      <th>Seen it?</th>
+      <th>Want to see it?</th>
+    </tr>
+    <% if movie.voters.include? current_user
+      current_vote = Vote.find(:first,
+                               :conditions =>
+                               ['movie_id = ? AND user_id = ?',
+                                movie.id,
+                                current_user.id]) %>
+      <%= render :partial => "movies/vote_row",
+                 :locals => {:vote => current_vote } %>
+    <% end %>
+    <% movie.votes.each do |vote|
+      unless vote.user == current_user %>
+        <%= render :partial => "movies/vote_row",
+                   :locals => {:vote => vote } %>
+      <% end
+     end %>
+</div>

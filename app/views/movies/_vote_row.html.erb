@@ -1,0 +1,20 @@
+<tr>
+  <td><%=h vote.user.name %></td>
+  <% if vote.val == 0 %>
+    <td><%= image_tag "plus_disabled.png", :size => "25x25" %></td>
+    <td><%= image_tag "minus_enabled.png", :size => "25x25" %></td>
+  <% else %>
+    <td><%= image_tag "plus_enabled.png", :size => "25x25" %></td>
+    <td><%= image_tag "minus_disabled.png", :size => "25x25" %></td>
+  <% end %>
+  <td>
+    <%= (vote.seen ?
+          image_tag("seen_enabled.png", :size => "25x25") :
+          image_tag("seen_disabled.png", :size => "25x25")) %>
+  </td>
+    <td>
+    <%= (vote.want_to_see ?
+          image_tag("want_to_enabled.png", :size => "25x25") :
+          image_tag("want_to_disabled.png", :size => "25x25")) %>
+  </td>
+</tr>
