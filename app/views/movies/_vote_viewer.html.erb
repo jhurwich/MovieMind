@@ -1,6 +1,80 @@
+<script type="text/javascript">
+  VoteViewer = {
+    toggleVote: function(voteId, val) {
+      $.ajax({
+        type: "POST",
+        url: "/votes/toggle_vote",
+        data: {
+          vote_id: voteId,
+          val: val,
+          user_id: "<%= current_user.id %>",
+          movie_id: "<%= movie.id %>"
+        },
+        success: function(returnedHTML) {
+          $("#current_vote_row").html(returnedHTML);
+        }
+      });
+    },
+
+    toggleSeen: function(voteId) {
+      $.ajax({
+        type: "POST",
+        url: "/votes/toggle_seen",
+        data: {
+          vote_id: voteId,
+          user_id: "<%= current_user.id %>",
+          movie_id: "<%= movie.id %>"
+        },
+        success: function(returnedHTML) {
+          $("#current_vote_row").html(returnedHTML);
+        }
+      });
+    },
+
+    toggleWantToSee: function(voteId) {
+      $.ajax({
+        type: "POST",
+        url: "/votes/toggle_want_to_see",
+        data: {
+          vote_id: voteId,
+          user_id: "<%= current_user.id %>",
+          movie_id: "<%= movie.id %>"
+        },
+        success: function(returnedHTML) {
+          $("#current_vote_row").html(returnedHTML);
+        }
+      });
+    }
+  };
+
+  $(document).ready(function(){
+
+    $("#current_vote_row").click( function(e) {
+      var buttonSwitch = e.target.className.split("_vote")[0];
+      var voteId = $(e.target).closest("[voteId]").attr("voteId");
+      switch (buttonSwitch)
+      {
+      case "up":
+        VoteViewer.toggleVote(voteId, 1);
+        break;
+      case "down":
+        VoteViewer.toggleVote(voteId, 0);
+        break;
+      case "seen":
+        VoteViewer.toggleSeen(voteId);
+        break;
+      case "want_to_see":
+        VoteViewer.toggleWantToSee(voteId);
+        break;
+
+      }
+    });
+  });
+</script>
+
 <div id="voteViewer">
   <% unless movie.voters.include? current_user %>
-    You haven't voted on this movie and you really should.
+    You haven't voted on this movie and you really should. </br>
   <% end %>
   <table>
     <tr>
@@ -9,19 +83,23 @@
       <th>Seen it?</th>
       <th>Want to see it?</th>
     </tr>
-    <% if movie.voters.include? current_user
-      current_vote = Vote.find(:first,
-                               :conditions =>
-                               ['movie_id = ? AND user_id = ?',
-                                movie.id,
-                                current_user.id]) %>
+    <% current_vote = Vote.find(:first,
+                             :conditions =>
+                             ['movie_id = ? AND user_id = ?',
+                              movie.id,
+                              current_user.id]) %>
+    <tr id="current_vote_row"
+        voteId="<%= current_vote.id if current_vote %>" >
       <%= render :partial => "movies/vote_row",
                  :locals => {:vote => current_vote } %>
-    <% end %>
+    </tr>
     <% movie.votes.each do |vote|
       unless vote.user == current_user %>
-        <%= render :partial => "movies/vote_row",
-                   :locals => {:vote => vote } %>
+        <tr>
+          <%= render :partial => "movies/vote_row",
+                     :locals => {:vote => vote } %>
+        </tr>
       <% end
      end %>
+  </table>
 </div>

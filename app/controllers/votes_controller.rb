@@ -1,31 +1,34 @@
 class VotesController < ApplicationController
-  def create_vote
-    vote = Vote.create(:movie_id => params[:movie_id],
-                       :user_id => params[:user_id])
-    render :text => vote.id.to_s
+  def find_or_create_vote(params)
+    if (params[:vote_id].length > 0)
+      vote = Vote.find(params[:vote_id])
+    else
+      vote = Vote.create(:movie_id => params[:movie_id],
+                         :user_id => params[:user_id])
+    end
   end
 
   def toggle_vote
-    vote = Vote.find(params[:vote_id])
+    vote = find_or_create_vote(params)
     vote.val = params[:val]
     vote.save!
-    render :partial => "votes/vote_row",
+    render :partial => "movies/vote_row",
            :locals => { :vote => vote }
   end
 
   def toggle_seen
-    vote = Vote.find(params[:vote_id])
+    vote = find_or_create_vote(params)
     vote.seen = !vote.seen
     vote.save!
-    render :partial => "votes/vote_row",
+    render :partial => "movies/vote_row",
            :locals => { :vote => vote }
   end
 
   def toggle_want_to_see
-    vote = Vote.find(params[:vote_id])
+    vote = find_or_create_vote(params)
     vote.want_to_see = !vote.want_to_see
     vote.save!
-    render :partial => "votes/vote_row",
+    render :partial => "movies/vote_row",
            :locals => { :vote => vote }
   end
 

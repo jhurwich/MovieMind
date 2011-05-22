@@ -1,20 +1,38 @@
-<tr>
+<% if vote %>
   <td><%=h vote.user.name %></td>
-  <% if vote.val == 0 %>
-    <td><%= image_tag "plus_disabled.png", :size => "25x25" %></td>
-    <td><%= image_tag "minus_enabled.png", :size => "25x25" %></td>
-  <% else %>
-    <td><%= image_tag "plus_enabled.png", :size => "25x25" %></td>
-    <td><%= image_tag "minus_disabled.png", :size => "25x25" %></td>
-  <% end %>
   <td>
-    <%= (vote.seen ?
-          image_tag("seen_enabled.png", :size => "25x25") :
-          image_tag("seen_disabled.png", :size => "25x25")) %>
+    <%= image_tag (vote.val == 1 ? "plus_enabled.png" : "plus_disabled.png"),
+                   :size => "25x25",
+                   :class => "up_vote" %>
   </td>
-    <td>
-    <%= (vote.want_to_see ?
-          image_tag("want_to_enabled.png", :size => "25x25") :
-          image_tag("want_to_disabled.png", :size => "25x25")) %>
+  <td>
+    <%= image_tag (vote.val == 0 ? "minus_enabled.png" : "minus_disabled.png"),
+                   :size => "25x25",
+                   :class => "down_vote" %>
   </td>
-</tr>
+  <td>
+    <%= image_tag((vote.seen ? "seen_enabled.png" : "seen_disabled.png"),
+                  :size => "25x25",
+                  :class => "seen_vote") %>
+  </td>
+  <td>
+    <%= image_tag((vote.want_to_see ? "want_to_enabled.png" :
+                                      "want_to_disabled.png"),
+                  :size => "25x25",
+                  :class => "want_to_see_vote") %>
+  </td>
+<% else %>
+  <td><%=h current_user.name %></td>
+  <td><%= image_tag "plus_disabled.png",
+                    :size => "25x25",
+                    :class => "up_vote"  %></td>
+  <td><%= image_tag "minus_disabled.png",
+                    :size => "25x25",
+                    :class => "down_vote"  %></td>
+  <td><%= image_tag "seen_disabled.png",
+                    :size => "25x25",
+                    :class => "seen_vote"  %></td>
+  <td><%= image_tag "want_to_disabled.png",
+                    :size => "25x25",
+                    :class => "want_to_see_vote" %></td>
+<% end %>
