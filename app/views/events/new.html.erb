@@ -16,6 +16,10 @@
     <%= f.text_field :date %>
   </p>
   <p>
+    <%= render :partial => "movies/movie_selector",
+               :locals => {:object => "event"} %>
+  </p>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

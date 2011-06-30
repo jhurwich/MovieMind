@@ -1,0 +1,11 @@
+<%=
+onchange = "" unless defined?(onchange) and onchange
+collection_select object,
+                  :movie_ids,
+                  Movie.all,
+                  :id,
+                  :title,
+                  { :prompt => 'Please select some movies.' },
+                  { :multiple => true,
+                    :onchange => onchange }
+%>

@@ -67,6 +67,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def search
+    puts '--------------------------------------GOT A SEARCH--------------------------------------'
+  end
+
   def filter_movies
     allTags = (params[:matchAllTags] == "true")
     movies = Movie.by_genres(params[:genres]).by_tags(params[:tags], allTags)
